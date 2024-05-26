@@ -1,13 +1,12 @@
 # API Boilerplate
-Built on Laravel 10, this boilerplate provide base skeleton for API Development using Laravel Framework.
+Built on Laravel 10, this app was made for Ishara API Development using Laravel Framework.
 
 ## Key Features
 1. API Authentication using JSON Web Token (JWT)
 2. Role using Spatie Laravel Permission
-3. Ready to custom base API skeleton
 
 ## Installation
-1. Clone this repository `https://github.com/bengkelkoding/Api-Boilerplate.git`
+1. Clone this repository `https://github.com/ishara-bangkit-capstone-project/ishara-backend-api`
 2. Open the folder cloned from this repo
 3. Run `composer install` to install any required dependencies, wait until done
 4. Copy file `.env.example`, paste in the same folder and rename it to `.env`
