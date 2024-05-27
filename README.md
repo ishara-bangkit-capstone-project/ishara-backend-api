@@ -1,4 +1,4 @@
-# API Boilerplate
+# Ishara Backend
 Built on Laravel 10, this app was made for Ishara API Development using Laravel Framework.
 
 ## Key Features
