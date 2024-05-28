@@ -50,6 +50,27 @@ class AuthController extends Controller
             $data = new RegisterResource($data, 'User registered successfully');
             return $this->respond($data);
         } catch (\Exception $e) {
+            Log::write('error', $e->getMessage());
+            return $this->ApiExceptionError($e->getMessage());
+        }
+    }
+
+    public function refreshToken(): JsonResponse
+    {
+        try {
+            $newToken = auth('api')->refresh();
+
+            return $this->respond([
+                'data' => [
+                    'token' => $newToken,
+                ],
+                'meta' => [
+                    'success' => true,
+                    'message' => 'Token refreshed successfully'
+                ],
+            ]);
+        } catch (\Exception $e) {
+            Log::write('error', $e->getMessage());
             return $this->ApiExceptionError($e->getMessage());
         }
     }

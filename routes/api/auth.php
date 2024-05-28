@@ -7,6 +7,9 @@ Route::prefix('v1/auth')->group(function () {
     Route::controller(AuthController::class)->group(function () {
         Route::post('login', 'login');
         Route::post('register', 'register');
-        Route::post('logout', 'logout')->middleware(['jwt.auth']);
+        Route::group(['middleware' => ['jwt.auth']], function () {
+            Route::post('logout', 'logout');
+            Route::post('refresh-token', 'refreshToken');
+        });
     });
 });
