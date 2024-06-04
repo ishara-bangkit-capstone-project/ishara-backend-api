@@ -1,7 +1,7 @@
 FROM php:8.1-fpm-alpine
 
-RUN apk add --no-cache nginx wget
 RUN docker-php-ext-install mysqli pdo pdo_mysql
+RUN apk add --no-cache nginx wget
 
 RUN mkdir -p /run/nginx
 
