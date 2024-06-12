@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\V1\User\DashboardController;
+use App\Http\Controllers\Api\V1\User\JourneyController;
 use App\Http\Controllers\Api\V1\User\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -14,6 +15,10 @@ Route::prefix('v1/user')->group(function () {
 
         Route::controller(DashboardController::class)->prefix('dashboard')->group(function () {
             Route::get('latest-stage', 'getLatestStage');
+        });
+
+        Route::controller(JourneyController::class)->prefix('journey')->group(function () {
+            Route::get('stages', 'getAllStages');
         });
     });
 });
