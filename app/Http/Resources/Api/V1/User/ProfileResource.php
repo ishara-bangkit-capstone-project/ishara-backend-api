@@ -30,6 +30,7 @@ class ProfileResource extends JsonResource
                 'name' => $this->name,
                 'email' => $this->email,
                 'role' => $this->roles->first()->name,
+                'total_stars' => $this->total_stars,
             ],
             'meta' => [
                 'success' => true,

@@ -9,6 +9,7 @@ Route::prefix('v1/user')->group(function () {
         Route::controller(ProfileController::class)->group(function () {
             Route::get('profile', 'profile');
             Route::put('profile', 'updateProfile');
+            Route::get('total-stars', 'getTotalStars');
         });
 
         Route::controller(DashboardController::class)->prefix('dashboard')->group(function () {
