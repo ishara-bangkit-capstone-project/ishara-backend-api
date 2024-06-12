@@ -13,6 +13,14 @@ class JourneyService
         $user = $request->user();
 
         $stages = Stage::select('id', 'name', 'description', 'minimum_stars', 'created_at', 'updated_at')
+            ->with('levels', function ($query) {
+                $query->select('id', 'stage_id', 'name')
+                    ->orderBy('id', 'asc')
+                    ->with('userLevelStar', function ($query) {
+                        $query->select('id', 'user_id', 'level_id', 'obtained_stars')
+                            ->where('user_id', auth()->id());
+                    });
+            })
             ->paginate($per_page, ['*'], 'page', $page)->withQueryString();
 
         foreach ($stages as $stage) {

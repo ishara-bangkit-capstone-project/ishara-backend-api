@@ -31,6 +31,16 @@ class AllStageCollection extends ResourceCollection
             'name' => $data->name,
             'description' => $data->description,
             'is_unlocked' => $data->is_unlocked,
+            'levels' => $data->levels->transform(function ($level) {
+                return [
+                    'id' => $level->id,
+                    'name' => $level->name,
+                    'user_level_star' => $level->userLevelStar ? [
+                        'id' => $level->userLevelStar->id,
+                        'obtained_stars' => $level->userLevelStar->obtained_stars,
+                    ] : null
+                ];
+            }),
         ];
     }
 

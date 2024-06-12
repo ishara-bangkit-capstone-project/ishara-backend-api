@@ -17,14 +17,14 @@ class UserLevelStarSeeder extends Seeder
             [
                 'user_id' => 2,
                 'level_id' => 1,
-                'obtained_stars' => 20,
+                'obtained_stars' => 5,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
                 'user_id' => 2,
                 'level_id' => 2,
-                'obtained_stars' => 15,
+                'obtained_stars' => 4,
                 'created_at' => now(),
                 'updated_at' => now(),
             ]

@@ -24,14 +24,14 @@ class StageSeeder extends Seeder
             [
                 'name' => 'Stage 2',
                 'description' => 'Description Stage 2',
-                'minimum_stars' => 20,
+                'minimum_stars' => 10,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
                 'name' => 'Stage 3',
                 'description' => 'Description Stage 3',
-                'minimum_stars' => 50,
+                'minimum_stars' => 30,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
