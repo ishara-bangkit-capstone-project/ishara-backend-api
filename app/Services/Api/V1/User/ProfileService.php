@@ -55,6 +55,7 @@ class ProfileService
     {
         $user_id = auth('api')->id();
 
+
         return User::select('id')->where('id', $user_id)->with('user_level_stars')->first();
     }
 }
