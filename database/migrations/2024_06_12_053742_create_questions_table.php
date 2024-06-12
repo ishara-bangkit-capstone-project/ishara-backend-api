@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('question');
             $table->string('answer')->nullable();
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }
