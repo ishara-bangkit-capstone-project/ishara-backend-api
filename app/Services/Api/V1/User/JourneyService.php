@@ -2,7 +2,9 @@
 
 namespace App\Services\Api\V1\User;
 
+use App\Models\Question;
 use App\Models\Stage;
+use Exception;
 
 class JourneyService
 {
@@ -32,5 +34,27 @@ class JourneyService
         }
 
         return $stages;
+    }
+
+    public function getAllQuestionsInLevel($levelId)
+    {
+        $questions = Question::where('level_id', $levelId)
+            ->select('id', 'level_id', 'type', 'title', 'question', 'answer', 'image')
+            ->with(
+                [
+                    'answers' => function ($query) {
+                        $query->select('id', 'question_id', 'answer', 'is_correct');
+                    },
+                    'level' => function ($query) {
+                        $query->select('id', 'name');
+                    }],
+            )
+            ->get();
+
+        if ($questions->isEmpty()) {
+            throw new Exception('No questions found in this level');
+        }
+
+        return $questions;
     }
 }
