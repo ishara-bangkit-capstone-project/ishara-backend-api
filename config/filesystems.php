@@ -56,6 +56,17 @@ return [
             'throw' => false,
         ],
 
+        'gcs' => [
+            'driver' => 'gcs',
+            'key_file_path' => env('GOOGLE_CLOUD_KEY_FILE', storage_path('app/service-account-key.json')), // optional: /path/to/service-account.json
+            'project_id' => env('GOOGLE_CLOUD_PROJECT_ID', 'ishara-development'), // optional: is included in key file
+            'bucket' => env('GOOGLE_CLOUD_STORAGE_BUCKET', 'ishara_file_storage'),
+            'path_prefix' => env('GOOGLE_CLOUD_STORAGE_PATH_PREFIX', ''), // optional: /default/path/to/apply/in/bucket
+            'storage_api_uri' => env('GOOGLE_CLOUD_STORAGE_API_URI', null), // see: Public URLs below
+            'metadata' => ['cacheControl' => 'public,max-age=86400'], // optional: default metadata
+            'visibility' => 'public', // optional: public|private
+            'throw' => true,
+        ],
     ],
 
     /*
