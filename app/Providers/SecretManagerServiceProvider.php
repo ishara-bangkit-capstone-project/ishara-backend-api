@@ -40,7 +40,7 @@ class SecretManagerServiceProvider extends ServiceProvider
         file_put_contents($serviceAccountKeyPath, $payload);
 
         // Atur environment variable GOOGLE_APPLICATION_CREDENTIALS
-        putenv("GOOGLE_CLOUD_KEY_FILE={$serviceAccountKeyPath}");
+        putenv("GOOGLE_APPLICATION_CREDENTIALS={$serviceAccountKeyPath}");
 
         // Tambahkan log untuk memastikan
         Log::info('Service account key saved and GOOGLE_APPLICATION_CREDENTIALS set.');
