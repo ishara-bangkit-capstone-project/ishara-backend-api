@@ -119,7 +119,6 @@ class FileService
         }
 
         $path_name = Str::replaceFirst('/', '', $file->path_name);
-        dd($path_name);
         Storage::disk('gcs')->delete($path_name);
 
         $file->delete();
