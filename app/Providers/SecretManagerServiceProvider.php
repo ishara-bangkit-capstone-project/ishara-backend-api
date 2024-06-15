@@ -2,8 +2,7 @@
 
 namespace App\Providers;
 
-use Google\Cloud\SecretManager\V1\AccessSecretVersionRequest;
-use Google\Cloud\SecretManager\V1\Client\SecretManagerServiceClient;
+use GuzzleHttp\Client;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\ServiceProvider;
 
@@ -14,9 +13,7 @@ class SecretManagerServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        $this->app->singleton(SecretManagerServiceClient::class, function ($app) {
-            return new SecretManagerServiceClient();
-        });
+        //
     }
 
     /**
@@ -24,25 +21,25 @@ class SecretManagerServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        $secretManager = $this->app->make(SecretManagerServiceClient::class);
-        $secretName = sprintf('projects/%s/secrets/%s/versions/latest', 'ishara-development', 'ishara_cloud_storage_serviceacc');
+        // URL file yang ingin di-download dari Google Cloud Storage
+        $fileUrl = 'https://storage.googleapis.com/service_account_ishara/ishara-development-58462f545ec8.json';
+        $destinationPath = storage_path('app/' . basename($fileUrl));
 
-        // Buat permintaan untuk mengakses versi secret
-        $request = new AccessSecretVersionRequest();
-        $request->setName($secretName);
+        // Inisialisasi Guzzle client
+        $client = new Client();
 
-        // Ambil respons dari Secret Manager
-        $response = $secretManager->accessSecretVersion($request);
-        $payload = $response->getPayload()->getData();
+        try {
+            // Download file dari Google Cloud Storage
+            $response = $client->get($fileUrl, ['sink' => $destinationPath]);
 
-        // Simpan service account key di storage sementara
-        $serviceAccountKeyPath = storage_path('app/service-account-key.json');
-        file_put_contents($serviceAccountKeyPath, $payload);
-
-        // Atur environment variable GOOGLE_APPLICATION_CREDENTIALS
-        putenv("GOOGLE_APPLICATION_CREDENTIALS={$serviceAccountKeyPath}");
-
-        // Tambahkan log untuk memastikan
-        Log::info('Service account key saved and GOOGLE_APPLICATION_CREDENTIALS set.');
+            if ($response->getStatusCode() == 200) {
+                // Set environment variable untuk GOOGLE_CLOUD_KEY_FILE
+                putenv('GOOGLE_APPLICATION_CREDENTIALS=' . $destinationPath);
+            } else {
+                Log::error("Failed to download file from {$fileUrl}. HTTP status code: " . $response->getStatusCode());
+            }
+        } catch (\Exception $e) {
+            Log::error('Error downloading file from Google Cloud Storage: ' . $e->getMessage());
+        }
     }
 }
