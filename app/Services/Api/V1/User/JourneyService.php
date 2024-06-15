@@ -4,6 +4,7 @@ namespace App\Services\Api\V1\User;
 
 use App\Models\Question;
 use App\Models\Stage;
+use App\Models\UserLevelStar;
 use Exception;
 
 class JourneyService
@@ -56,5 +57,33 @@ class JourneyService
         }
 
         return $questions;
+    }
+
+    public function saveUserLevelStars($levelId, $request)
+    {
+        $user_id = auth('api')->id();
+
+        // Check if user has already obtained stars for this level
+        // If yes, update the stars (only if obtained stars is greater than the previous obtained stars)
+        // If no, create a new record
+        $userLevelStar = UserLevelStar::where('user_id', $user_id)
+            ->where('level_id', $levelId)
+            ->first();
+
+        if ($userLevelStar) {
+            if ($request->obtained_stars > $userLevelStar->obtained_stars) {
+                $userLevelStar->update(['obtained_stars' => $request->obtained_stars]);
+            } else {
+                throw new Exception('Obtained stars should be greater than the previous obtained stars');
+            }
+        } else {
+            $userLevelStar = UserLevelStar::create([
+                'user_id' => $user_id,
+                'level_id' => $levelId,
+                'obtained_stars' => $request->obtained_stars,
+            ]);
+        }
+
+        return $userLevelStar;
     }
 }

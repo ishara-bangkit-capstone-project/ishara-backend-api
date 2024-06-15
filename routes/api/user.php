@@ -20,6 +20,7 @@ Route::prefix('v1/user')->group(function () {
         Route::controller(JourneyController::class)->prefix('journey')->group(function () {
             Route::get('stages', 'getAllStages');
             Route::get('levels/{levelId}/questions', 'getAllQuestionsInLevel');
+            Route::post('levels/{levelId}/level-stars', 'saveUserLevelStars');
         });
     });
 });
