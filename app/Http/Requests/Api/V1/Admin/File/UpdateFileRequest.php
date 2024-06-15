@@ -2,7 +2,7 @@
 
 namespace App\Http\Requests\Api\V1\Admin\File;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\BaseApiRequest as FormRequest;
 
 class UpdateFileRequest extends FormRequest
 {
