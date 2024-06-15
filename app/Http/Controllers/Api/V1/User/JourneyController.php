@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\V1\User;
 
 use App\Http\Controllers\BaseApiController as Controller;
 use App\Http\Requests\Api\V1\User\Journey\UserLevelStarsRequest;
+use App\Http\Resources\Api\V1\User\Journey\AllLevelInStageCollection;
 use App\Http\Resources\Api\V1\User\Journey\AllQuestionInLevelCollection;
 use App\Http\Resources\Api\V1\User\Journey\AllStageCollection;
 use App\Http\Resources\Api\V1\User\Journey\UserLevelStarsResource;
@@ -55,7 +56,26 @@ class JourneyController extends Controller
         }
     }
 
+    public function getUserLevelStars($levelId)
+    {
+        try {
+            $data = $this->journeyService->getUserLevelStars($levelId);
+            $result = new UserLevelStarsResource($data, 'User level stars fetched successfully');
+
+            return $this->respond($result);
+        } catch (\Exception $e) {
+            return $this->ApiExceptionError($e->getMessage());
+        }
+    }
+
     public function getAllLevelInStage($stageId)
     {
+        try {
+            $levels = $this->journeyService->getAllLevelInStage($stageId);
+            $result = new AllLevelInStageCollection($levels);
+            return $this->respond($result);
+        } catch (\Exception $e) {
+            return $this->ApiExceptionError($e->getMessage());
+        }
     }
 }

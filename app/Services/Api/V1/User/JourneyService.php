@@ -2,6 +2,7 @@
 
 namespace App\Services\Api\V1\User;
 
+use App\Models\Level;
 use App\Models\Question;
 use App\Models\Stage;
 use App\Models\UserLevelStar;
@@ -85,5 +86,40 @@ class JourneyService
         }
 
         return $userLevelStar;
+    }
+
+    public function getUserLevelStars($levelId)
+    {
+        $user_id = auth('api')->id();
+
+        $userLevelStar = UserLevelStar::select('id', 'user_id', 'level_id', 'obtained_stars')
+            ->with('level')
+            ->where('user_id', $user_id)
+            ->where('level_id', $levelId)
+            ->first();
+
+        if (!$userLevelStar) {
+            throw new Exception('No stars found for this level');
+        }
+
+        return $userLevelStar;
+    }
+
+    public function getAllLevelInStage($stageId) {
+        $levels = Level::where('stage_id', $stageId)
+            ->select('id', 'stage_id', 'name')
+            ->with(
+                [
+                    'stage' => function($query) {
+                        $query->select('id', 'name', 'description', 'minimum_stars');
+                    }
+                ]
+            )->get();
+
+        if($levels->isEmpty()) {
+            throw new Exception('No levels found in this stage');
+        }
+
+        return $levels;
     }
 }
