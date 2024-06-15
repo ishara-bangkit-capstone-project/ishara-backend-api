@@ -22,7 +22,7 @@ class UploadFileRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|unique:files|string|max:255',
+            'name' => 'required|string|max:255',
             'description' => 'nullable|string|max:255',
             'file' => 'required|file|mimes:jpg,jpeg,png,gif,svg|max:2048',
         ];

@@ -22,11 +22,7 @@ class UpdateFileRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => [
-                'required',
-                'string',
-                'max:255',
-            ],
+            'name' => 'required|string|max:255',
             'description' => 'nullable|string|max:255',
             'file' => 'file|mimes:jpg,jpeg,png,gif,svg|max:2048',
         ];
