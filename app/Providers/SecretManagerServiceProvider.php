@@ -35,7 +35,8 @@ class SecretManagerServiceProvider extends ServiceProvider
             if ($response->getStatusCode() == 200) {
                 // Set environment variable untuk GOOGLE_CLOUD_KEY_FILE
                 putenv('GOOGLE_APPLICATION_CREDENTIALS=' . $destinationPath);
-                putenv('GOOGLE_CLOUD_KEY_FILE=' . $destinationPath);
+                config(['google_application_credentials' => $destinationPath]);
+//                putenv('GOOGLE_CLOUD_KEY_FILE=' . $destinationPath);
             } else {
                 Log::error("Failed to download file from {$fileUrl}. HTTP status code: " . $response->getStatusCode());
             }
