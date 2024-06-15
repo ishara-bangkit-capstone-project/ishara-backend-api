@@ -21,12 +21,9 @@ class UpdateFileRequest extends FormRequest
      */
     public function rules(): array
     {
-        $file_id = request()->route('id');
-
         return [
             'name' => [
                 'required',
-                'unique:files,name,' . $file_id,
                 'string',
                 'max:255',
             ],
