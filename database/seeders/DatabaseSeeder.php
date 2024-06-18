@@ -14,6 +14,7 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             PermissionSeeder::class,
+            FilesTableSeeder::class,
             StageSeeder::class,
             LevelSeeder::class,
             QuestionSeeder::class,
