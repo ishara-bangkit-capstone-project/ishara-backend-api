@@ -26,13 +26,22 @@ class AllQuestionInLevelCollection extends ResourceCollection
 
     public function transformData($data): array
     {
+        $answer = $data->answer;
+        $image = $data->image;
+
+        if ($data->type == 'sequence') {
+            $answer = json_decode($answer, true);
+            $image = json_decode(json_decode($image), true);
+            $answer = $answer['answer'];
+        }
+
         return [
             'id' => $data->id,
             'type' => $data->type,
             'title' => $data->title,
             'question' => $data->question,
-            'answer' => ($data->type == 'text') ? $data->answer : null,
-            'image' => ($data->type == 'image') ? $data->image : null,
+            'correct_answer' =>  $answer,
+            'image' =>  $image,
             'answers' => $data->answers->transform(function ($answer) {
                 return [
                     'id' => $answer->id,

@@ -15,22 +15,22 @@ class StageSeeder extends Seeder
     {
         $stage = [
             [
-                'name' => 'Stage 1',
-                'description' => 'Description Stage 1',
+                'name' => 'Abjad 1',
+                'description' => 'Belajar isyarat untuk abjad a - j',
                 'minimum_stars' => 0,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
-                'name' => 'Stage 2',
-                'description' => 'Description Stage 2',
+                'name' => 'Abjad 2',
+                'description' => 'Belajar isyarat untuk abjad k - s',
                 'minimum_stars' => 10,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
-                'name' => 'Stage 3',
-                'description' => 'Description Stage 3',
+                'name' => 'Abjad 3',
+                'description' => 'Belajar isyarat untuk abjad t - z',
                 'minimum_stars' => 30,
                 'created_at' => now(),
                 'updated_at' => now(),
