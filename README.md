@@ -2,10 +2,19 @@
 Built on Laravel 10, this app was made for Ishara API Development using Laravel Framework.
 
 ## Key Features
-1. API Authentication using JSON Web Token (JWT)
+1. API Authentication using JSON Web Token (JWT), which includes Login, Register, Refresh Token, and Logout endpoints
 2. Role using Spatie Laravel Permission
+3. User Role
+   - Profile : Get Profile, Get Total Obtained Stars
+   - Dashbaord : Get Latest Stage
+   - Journey : List All Stages, Get All Levels on a Stage, Get All Questions on a Stage, Get All Questions on a Level, User Level Stars (Get Obtained Stars on a Level, Save Obtained Stars on a Level)
+4. Admin Role :
+   - File (Centralized File Management API, integrated with Google Cloud Storage)
 
-## Installation
+## API Docs
+URL : https://documenter.getpostman.com/view/35279553/2sA3XQhN92
+
+## Installation Guide
 1. Clone this repository `https://github.com/ishara-bangkit-capstone-project/ishara-backend-api`
 2. Open the folder cloned from this repo
 3. Run `composer install` to install any required dependencies, wait until done
