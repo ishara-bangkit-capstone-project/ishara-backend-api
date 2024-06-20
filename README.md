@@ -1,6 +1,9 @@
 # Ishara Backend
 Built on Laravel 10, this app was made for Ishara API Development using Laravel Framework.
 
+## Cloud Architecture
+![image](https://github.com/ishara-bangkit-capstone-project/ishara-backend-api/assets/56423774/a3b9cdeb-03d5-43d7-ab3e-dadc5e37eefe)
+
 ## Key Features
 1. API Authentication using JSON Web Token (JWT), which includes Login, Register, Refresh Token, and Logout endpoints
 2. Role using Spatie Laravel Permission
@@ -33,3 +36,5 @@ DB_PASSWORD=your_db_pass
 8. Run `php artisan db:seed` to insert the existing dummy data
 9. Run the program locally using `php artisan serve` command
 
+## Built With
+![image](https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white)![image](https://img.shields.io/badge/Google_Cloud-4285F4?style=for-the-badge&logo=google-cloud&logoColor=white)![image](https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white)![image](https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white)
