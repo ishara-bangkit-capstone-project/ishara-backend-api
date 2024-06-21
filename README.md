@@ -1,6 +1,9 @@
 # Ishara Backend
 Built on Laravel 10, this app was made for Ishara API Development using Laravel Framework.
 
+## Built With
+![image](https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white)![image](https://img.shields.io/badge/Google_Cloud-4285F4?style=for-the-badge&logo=google-cloud&logoColor=white)![image](https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white)![image](https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white)
+
 ## Cloud Architecture
 ![image](https://github.com/ishara-bangkit-capstone-project/ishara-backend-api/assets/56423774/a3b9cdeb-03d5-43d7-ab3e-dadc5e37eefe)
 
@@ -15,7 +18,7 @@ Built on Laravel 10, this app was made for Ishara API Development using Laravel 
    - File (Centralized File Management API, integrated with Google Cloud Storage)
 
 ## API Docs
-URL : https://documenter.getpostman.com/view/35279553/2sA3XQhN92
+For the API Documentation you can access it [here](https://documenter.getpostman.com/view/35279553/2sA3XQhN92)
 
 ## Installation Guide
 1. Clone this repository `https://github.com/ishara-bangkit-capstone-project/ishara-backend-api`
@@ -36,5 +39,7 @@ DB_PASSWORD=your_db_pass
 8. Run `php artisan db:seed` to insert the existing dummy data
 9. Run the program locally using `php artisan serve` command
 
-## Built With
-![image](https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white)![image](https://img.shields.io/badge/Google_Cloud-4285F4?style=for-the-badge&logo=google-cloud&logoColor=white)![image](https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white)![image](https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white)
+## Installed Libraries
+1. [spatie/laravel-permission](https://github.com/spatie/laravel-permission) : Used to manage user role and permission
+2. [spatie/google-cloud-storage](https://github.com/spatie/laravel-google-cloud-storage) : Used to store image file data to google cloud storage
+3. [orangehill/iseed](https://github.com/orangehill/iseed) : Use to make seeder data from existing data in database
