@@ -1,6 +1,20 @@
 # Ishara Backend
 Built on Laravel 10, this app was made for Ishara API Development using Laravel Framework.
 
+# Repositories
+|   Learning Paths       |                                Link                                              |
+| :----------------:     | :----------------------------------------------------------------:               |
+|   Organization         |            [Github](https://github.com/ishara-bangkit-capstone-project)                    |
+|  Machine Learning      |            [Github](https://github.com/ishara-bangkit-capstone-project/ishara-machine-learning )   |
+|  Cloud Computing  |        [Github](https://github.com/ishara-bangkit-capstone-project/ishara-backend-api)        |
+| Mobile Development     |            [Github](https://github.com/ishara-bangkit-capstone-project/ishara-mobile-app) |
+
+# Cloud Computing Team
+|  Name | Bangkit ID | Contacts |
+| ------------ | ------------ | ------------ |
+| Rayhan Ashlikh Rosyada	 | C007D4KY0293 		 | [Github](https://github.com/rayhanashlikh) & [Linkedin](https://www.linkedin.com/in/rayhan-ashlikh-rosyada-598155197/)  |
+| Muhammad Akbar Adityah	 | C134D4KY0393 		| [Github](https://github.com/baloerrr) & [Linkedin](https://www.linkedin.com/in/muhammad-akbar-adityah/) |
+
 ## Built With
 ![image](https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white)![image](https://img.shields.io/badge/Google_Cloud-4285F4?style=for-the-badge&logo=google-cloud&logoColor=white)![image](https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white)![image](https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white)
 
